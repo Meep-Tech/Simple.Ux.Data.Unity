@@ -46,9 +46,28 @@ namespace Simple.Ux.Data.Unity {
          DelegateCollection<Action<DataField, object>> onValueChanged,
          Dictionary<Type, Attribute> attributes
        ) => {
-
          throw new NotImplementedException();
        }, typeof(UnityEngine.UI.Image).AsSingleItemEnumerable());
+
+    /// <summary>
+    /// Used to display images
+    /// </summary>
+    public static DisplayType UnityUIElement {
+      get;
+    } = new DisplayType(nameof(UnityUIElement), (
+         string title,
+         string tooltip,
+         object value,
+         bool isReadOnly,
+         string dataKey,
+         DelegateCollection<Func<DataField, View, bool>> enabledIf,
+         DelegateCollection<Func<DataField, View, bool>> hiddenIf,
+         DelegateCollection<Func<DataField, object, (bool success, string message)>> validations,
+         DelegateCollection<Action<DataField, object>> onValueChanged,
+         Dictionary<Type, Attribute> attributes
+       ) => {
+         throw new NotSupportedException($"You cannot create a new unity UI element with the default constructor method. Use the UnityUIElement Type instead.");
+       });
 
     /// <summary>
     /// Make a new display type
